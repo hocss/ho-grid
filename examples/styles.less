@@ -1,5 +1,18 @@
 @import '../mixin';
 
+
+/*
+ * Sets a breakpoint for the grid
+ */
+.make-cell( @column-width, @columns ) {
+    .make-column( @column-width, @columns );
+    @media (max-width: @breakpoint) {
+        float: none;
+        width: 100%;
+    }
+}
+
+
 body {
     background: #f1f1f1;
     font-family: 'Helvetica Neue', 'Lucida Grande', Helvetica, Arial, sans-serif;
@@ -67,33 +80,33 @@ body {
     @gutter: 14px;
     .row {
         .make-row();
+    }
 
-        .left,
-        .right {
-            .column( 1, 2 );
+    .left,
+    .right {
+        .make-column( 1, 2 );
+    }
+
+    .card {
+        width: 100%;
+        background: #fff;
+        padding: 8px 24px;
+        box-sizing: border-box;
+        border: 1px solid #d4d4d8;
+        border-radius: 4px;
+
+        h2 {
+            font-size: 21px;
+            line-height: 24px;
+            margin: 0;
         }
+        p {
+            font-size: 15px;
+            line-height: 21px;
+            margin: 0 0 8px 0;
 
-        .card {
-            width: 100%;
-            background: #fff;
-            padding: 8px 24px;
-            box-sizing: border-box;
-            border: 1px solid #d4d4d8;
-            border-radius: 4px;
-
-            h2 {
-                font-size: 21px;
-                line-height: 24px;
-                margin: 0;
-            }
-            p {
-                font-size: 15px;
-                line-height: 21px;
-                margin: 0 0 8px 0;
-
-                &:last-of-type {
-                    margin-bottom: 0;
-                }
+            &:last-of-type {
+                margin-bottom: 0;
             }
         }
     }
@@ -102,26 +115,59 @@ body {
 .container.padding {
     @gutter: 20px;
     padding: 0px @gutter/2;
+
     .row {
         .make-row();
+    }
 
-        .main,
-        .sub {
-            .column( 2, 5 );
+    .main,
+    .sub {
+        .make-column( 2, 5 );
+    }
+
+    .main {
+        background: #E1F5C4;
+    }
+
+    .sub {
+        background: #EDE574;
+    }
+
+    aside {
+        .make-column( 1, 5 );
+        background: #FC913A;
+    }
+}
+
+
+.container.twelve {
+    @gutter: 5px;
+    @breakpoint: 700px;
+
+    .row {
+        .make-row();
+        margin-top: @gutter;
+        margin-bottom: @gutter;
+
+        section {
+            height: 44px;
+            text-align:center;
+            line-height: 43px;
+            border: 1px solid #d4d4d4;
+            background: #ffffff;
         }
+    }
 
-        .main {
-            background: #E1F5C4;
-        }
+    .of-twelve {
+        @breakpoint: 550px;
+        .make-cell( 1, 12 );
+    }
 
-        .sub {
-            background: #EDE574;
-        }
+    .four-twelve {
+        .make-cell( 1, 3 );
+    }
 
-        aside {
-            .column( 1, 5 );
-            background: #FC913A;
-        }
-
+    .eight-twelve {
+        .make-cell( 2, 3 );
     }
 }
