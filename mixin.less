@@ -12,14 +12,16 @@
 
 
 .make-row() {
+    .cf();
     margin-left: -@gutter/2;
     margin-right: -@gutter/2;
     box-sizing: border-box;
-    .cf();
 }
 
 .make-column( @column-width, @columns ) {
-    width: 100% * @column-width / @columns;
+    position: relative;
+    min-height: 1px;
+    width: percentage( @column-width / @columns );
     padding-left: @gutter/2;
     padding-right: @gutter/2;
     float: left;
@@ -27,9 +29,9 @@
 }
 
 .before-column( @column-width, @columns ) {
-    margin-left: 100% * @column-width / @columns;
+    margin-left: percentage( @column-width / @columns );
 }
 
 .after-column( @column-width, @columns ) {
-    margin-right: 100% * @column-width / @columns;
+    margin-right: percentage( @column-width / @columns );
 }
