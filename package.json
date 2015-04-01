@@ -1,0 +1,22 @@
+{
+  "name": "flawless-grid",
+  "version": "0.0.0",
+  "description": "Modular grid system for flawless",
+  "main": "main.less",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "flawless",
+    "less",
+    "css",
+    "grid",
+    "modular",
+    "framework"
+  ],
+  "author": "Matt Styles",
+  "license": "ISC"
+}

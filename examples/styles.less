@@ -1,0 +1,127 @@
+@import '../mixin';
+
+body {
+    background: #f1f1f1;
+    font-family: 'Helvetica Neue', 'Lucida Grande', Helvetica, Arial, sans-serif;
+    color: #333;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: greyscale;
+}
+
+.ui {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+
+    button {
+        padding: 4px;
+        border: none;
+        border-radius: 4px;
+        background: rgba( 0, 0, 0, 0 );
+
+        &:hover {
+            cursor: pointer;
+            background: rgba( 0,0,0, .15 );
+
+            svg {
+                fill: #303033;
+            }
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        svg {
+            height: 44px;
+            width: 44px;
+            fill: #888;
+        }
+    }
+}
+
+.show-grid {
+    .container {
+        border: 1px solid #ddd;
+        background: white;
+    }
+
+    .row {
+        border: 1px solid #ccc;
+        background: rgba( 255,78,80, .5);
+    }
+
+    .ui button svg {
+        fill: #FF4E50;
+    }
+}
+
+.container {
+    width: 100%;
+    max-width: 680px;
+    margin: 20px auto;
+    box-sizing: border-box;
+}
+
+.container.split {
+    @gutter: 14px;
+    .row {
+        .make-row();
+
+        .left,
+        .right {
+            .column( 1, 2 );
+        }
+
+        .card {
+            width: 100%;
+            background: #fff;
+            padding: 8px 24px;
+            box-sizing: border-box;
+            border: 1px solid #d4d4d8;
+            border-radius: 4px;
+
+            h2 {
+                font-size: 21px;
+                line-height: 24px;
+                margin: 0;
+            }
+            p {
+                font-size: 15px;
+                line-height: 21px;
+                margin: 0 0 8px 0;
+
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+.container.padding {
+    @gutter: 20px;
+    padding: 0px @gutter/2;
+    .row {
+        .make-row();
+
+        .main,
+        .sub {
+            .column( 2, 5 );
+        }
+
+        .main {
+            background: #E1F5C4;
+        }
+
+        .sub {
+            background: #EDE574;
+        }
+
+        aside {
+            .column( 1, 5 );
+            background: #FC913A;
+        }
+
+    }
+}
