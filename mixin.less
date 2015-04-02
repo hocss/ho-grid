@@ -11,14 +11,14 @@
 }
 
 
-.make-row() {
+.fl-make-row() {
     .cf();
     margin-left: -@gutter/2;
     margin-right: -@gutter/2;
     box-sizing: border-box;
 }
 
-.make-column( @column-width, @columns ) {
+.fl-make-column( @column-width, @columns ) {
     position: relative;
     min-height: 1px;
     width: percentage( @column-width / @columns );
@@ -28,10 +28,10 @@
     box-sizing: border-box;
 }
 
-.before-column( @column-width, @columns ) {
+.fl-before-column( @column-width, @columns ) {
     margin-left: percentage( @column-width / @columns );
 }
 
-.after-column( @column-width, @columns ) {
+.fl-after-column( @column-width, @columns ) {
     margin-right: percentage( @column-width / @columns );
 }
