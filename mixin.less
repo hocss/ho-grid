@@ -10,7 +10,6 @@
     }
 }
 
-
 .fl-make-row() {
     .cf();
     margin-left: -@gutter/2;
@@ -18,20 +17,20 @@
     box-sizing: border-box;
 }
 
-.fl-make-column( @column-width, @columns ) {
+.fl-make-column( @column-width, @num-columns ) {
     position: relative;
     min-height: 1px;
-    width: percentage( @column-width / @columns );
+    width: percentage( @column-width / @num-columns );
     padding-left: @gutter/2;
     padding-right: @gutter/2;
     float: left;
     box-sizing: border-box;
 }
 
-.fl-before-column( @column-width, @columns ) {
-    margin-left: percentage( @column-width / @columns );
+.fl-before-column( @column-width, @num-columns ) {
+    margin-left: percentage( @column-width / @num-columns );
 }
 
-.fl-after-column( @column-width, @columns ) {
-    margin-right: percentage( @column-width / @columns );
+.fl-after-column( @column-width, @num-columns ) {
+    margin-right: percentage( @column-width / @num-columns );
 }

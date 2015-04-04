@@ -1,10 +1,11 @@
 /**
  * Component - separate file
+ *
+ * Components must be scoped, or @gutter will confuse other components
  */
 
-@gutter: 12px;
-
 .Profile {
+    @gutter: 12px;
     width: 100%;
     max-width: 380px;
     margin: 20px auto;
@@ -12,46 +13,47 @@
     background: white;
     border: 1px solid #e4e4e4;
     border-radius: 4px;
-}
 
-.Profile-inner {
-    .fl-make-row();
-}
 
-.Profile-avatar {
-    .fl-make-column( 1, 6 );
-
-    img {
-        width: 100%;
-        height: 100%;
-    }
-}
-
-.Profile-content {
-    .fl-make-column( 5, 6 );
-
-    h2 {
-        font-size: 2.1em;
-        line-height: 1.12em;
-        margin: 0;
+    .Profile-inner {
+        .fl-make-row();
     }
 
-    h3 {
-        font-size: 1.5em;
-        line-height: 1em;
-        text-transform: uppercase;
-        margin: 0;
-        color: #898989;
+    .Profile-avatar {
+        .fl-make-column( 1, 6 );
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
     }
 
-    p {
-        font-size: 1.5em;
-        line-height: 1.33em;
-        margin-top: 0;
-        margin-bottom: .5em;
+    .Profile-content {
+        .fl-make-column( 5, 6 );
 
-        &:first-of-type {
-            margin-top: .66em;
+        h2 {
+            font-size: 2.1em;
+            line-height: 1.12em;
+            margin: 0;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            line-height: 1em;
+            text-transform: uppercase;
+            margin: 0;
+            color: #898989;
+        }
+
+        p {
+            font-size: 1.5em;
+            line-height: 1.33em;
+            margin-top: 0;
+            margin-bottom: .5em;
+
+            &:first-of-type {
+                margin-top: .66em;
+            }
         }
     }
 }
