@@ -1,6 +1,6 @@
 {
   "name": "flawless-grid",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Modular grid system for flawless",
   "main": "main.less",
   "directories": {
@@ -8,7 +8,7 @@
   },
   "files": [
     "main.less",
-    "mixin.less"  
+    "mixin.less"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

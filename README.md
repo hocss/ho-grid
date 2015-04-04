@@ -66,7 +66,7 @@ Creating a grid which becomes a standard stacked list of content at a certain wi
   }
 
   .Component-column {
-    .fl-make-column( 1, 4 );
+    .fl-make-cell( 1, 4 );
   }
 }
 ```
