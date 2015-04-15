@@ -2,7 +2,9 @@
   "name": "flawless-grid",
   "version": "1.0.0",
   "description": "Modular grid system for flawless",
+  "author": "Matt Styles",
   "main": "main.less",
+  "license": "ISC",
   "directories": {
     "example": "examples"
   },
@@ -21,6 +23,12 @@
     "modular",
     "framework"
   ],
-  "author": "Matt Styles",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/flawless/flawless-grid.git"
+  },
+  "bugs": {
+    "url": "https://github.com/flawless/flawless-grid/issues"
+  },
+  "homepage": "https://github.com/flawless/flawless-grid"
 }
