@@ -1,4 +1,4 @@
-# Flawless Grid
+# Ho Grid
 
 > Modular grid system using less mixins
 
@@ -15,11 +15,11 @@ Uses an outdented grid methodology, stolen shamelessly (almost entirely and almo
   max-width: 1140px;
 
   .Component-row {
-    .fl-make-row();
+    .m-ho-makeRow();
   }
 
   .Component-column {
-    .fl-make-column( 1, 4 );
+    .m-ho-makeColumn( 1, 4 );
   }
 }
 ```
@@ -44,8 +44,8 @@ The mixins expect a `@gutter` variable to be supplied, which should be scoped to
 Creating a grid which becomes a standard stacked list of content at a certain width is relatively straight forward:
 
 ```
-.make-cell( @column-width, @columns ) {
-  .fl-make-column( @column-width, @columns );
+.m-makeCell( @column-width, @columns ) {
+  .m-ho-makeColumn( @column-width, @columns );
 
   @media (max-width: @breakpoint) {
     float: none;
@@ -62,11 +62,11 @@ Creating a grid which becomes a standard stacked list of content at a certain wi
   max-width: 1140px;
 
   .Component-row {
-    .fl-make-row();
+    .m-ho-makeRow();
   }
 
   .Component-column {
-    .fl-make-cell( 1, 4 );
+    .m-makeCell( 1, 4 );
   }
 }
 ```
@@ -75,7 +75,7 @@ Creating a grid which becomes a standard stacked list of content at a certain wi
 
 Some of the mixins require that a variable be defined somewhere, this should normally be scoped using nested selectors. There are many reasons why nesting is bad in preprocessors but due to _global leak_ issues with variables nesting here is required, although it could be avoided by scoping locally to each mixin.
 
-### .fl-make-row()
+### .m-ho-makeRow()
 
 _Requires_
 `@gutter`
@@ -84,7 +84,7 @@ _Description_
 
 Creates the outdents necessary to contain the columns.
 
-### .fl-make-columns( @column-width, @num-columns )
+### .m-ho-makeColumns( @column-width, @num-columns )
 
 _Requires_ `@gutter`
 
@@ -105,14 +105,14 @@ _Example_
  * Stretches across 2 columns of a 3 column row.
  */
 
-.fl-make-column( 2, 3 );
+.m-ho-makeColumn( 2, 3 );
 ```
 
 _Description_
 
 Creates a column within the row. A defined column (the selector the mixin applies to) may stretch across multiple columns in the row. Adding more defined columns than the maximum number of columns in the row will simply cause them to overflow which is useful for creating grids of similarly heighted elements.
 
-### .fl-before-column( @column-width, @num-columns )
+### .m-ho-beforeColumn( @column-width, @num-columns )
 
 _Parameter_ `@column-width`
 
@@ -131,10 +131,10 @@ _Example_
  * Creates a 5 column offset before the selector it is applied to.
  */
 
-.fl-before-column( 5, 12 );
+.m-ho-beforeColumn( 5, 12 );
 ```
 
-### .fl-after-column( @column-width, @num-columns )
+### .m-ho-afterColumn( @column-width, @num-columns )
 
 _Parameter_ `@column-width`
 
@@ -153,7 +153,7 @@ _Example_
  * Creates a 5 column offset after the selector it is applied to.
  */
 
-.fl-before-column( 5, 12 );
+.m-ho-afterColumn( 5, 12 );
 ```
 
 
@@ -165,7 +165,7 @@ Variables used by the mixins need to be scoped inside a selector, otherwise glob
 
 ## Bug Finding
 
-Picking up _global leak bugs_ is pretty difficult, particularly when the variable causing the leak is in a different file.
+Picking up _global leak bugs_ is pretty difficult <sup>[1](https://en.bem.info/articles/side-effects-in-css/#the-hardest-problem-in-css)</sup>, particularly when the variable causing the leak is in a different file.
 
 ```
 /* component.less */
@@ -174,25 +174,25 @@ Picking up _global leak bugs_ is pretty difficult, particularly when the variabl
 @gutter: 20px;
 
 .Component {
-  .fl-make-row();
+  .m-ho-makeRow();
 }
 .Component-column {
-  .fl-make-column();
+  .m-ho-makeColumn();
 }
 ```
 
 ```
 /* main.less */
 
-.container {
+.Component {
   @gutter: 10px;
 
-  .row {
-    .fl-make-row();
+  .Component-row {
+    .m-ho-makeRow();
   }
 
-  .column {
-    .fl-make-column();
+  .Component-column {
+    .m-ho-makeColumn();
   }
 }
 ```
@@ -211,7 +211,7 @@ This, again, is to do with how less structures finding variables. A mixin will l
   .fl-make-row();
 
   .Component-column {
-    .fl-make-column( 1, 3 );
+    .m-ho-makeColumn( 1, 3 );
   }
 }
 ```
@@ -227,8 +227,16 @@ The alternative is to scope variables locally to each mixin.
 }
 .Component-column {
   @gutter: 20px;
-  .fl-make-column( 1, 3 );
+  .m-ho-makeColumn( 1, 3 );
 }
 ```
 
-It would also be relatively straight forward to create a task to scan your less files and flag any globals.
+It would also be relatively straight forward to create a task to scan your less files and flag any globals<sup>[2](https://github.com/hocss/ho-conformance)</sup>.
+
+---
+
+## Refs
+
+<sup>[1]</sup> [Side effects in css / Philip Walton](https://en.bem.info/articles/side-effects-in-css/#the-hardest-problem-in-css)
+
+<sup>[2]</sup> [Conformance tool](https://github.com/hocss/ho-conformance)

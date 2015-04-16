@@ -1,5 +1,5 @@
 /* @TODO: include from scaffold module */
-.cf() {
+.u-cf() {
     *zoom:1;
     &:before, &:after {
         content: ' ';
@@ -10,14 +10,14 @@
     }
 }
 
-.fl-make-row() {
-    .cf();
+.m-ho-makeRow() {
+    .u-cf();
     margin-left: -@gutter/2;
     margin-right: -@gutter/2;
     box-sizing: border-box;
 }
 
-.fl-make-column( @column-width, @num-columns ) {
+.m-ho-makeColumn( @column-width, @num-columns ) {
     position: relative;
     min-height: 1px;
     width: percentage( @column-width / @num-columns );
@@ -27,10 +27,10 @@
     box-sizing: border-box;
 }
 
-.fl-before-column( @column-width, @num-columns ) {
+.m-ho-beforeColumn( @column-width, @num-columns ) {
     margin-left: percentage( @column-width / @num-columns );
 }
 
-.fl-after-column( @column-width, @num-columns ) {
+.m-ho-afterColumn( @column-width, @num-columns ) {
     margin-right: percentage( @column-width / @num-columns );
 }

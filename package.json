@@ -1,5 +1,5 @@
 {
-  "name": "flawless-grid",
+  "name": "ho-grid",
   "version": "1.1.0",
   "description": "Modular grid system for flawless",
   "author": "Matt Styles",
@@ -16,7 +16,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "flawless",
+    "ho",
+    "ho-module",
     "less",
     "css",
     "grid",
@@ -25,10 +26,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/flawless/flawless-grid.git"
+    "url": "git://github.com/hocss/ho-grid.git"
   },
   "bugs": {
-    "url": "https://github.com/flawless/flawless-grid/issues"
+    "url": "https://github.com/hocss/ho-grid/issues"
   },
-  "homepage": "https://github.com/flawless/flawless-grid"
+  "homepage": "https://github.com/hocss/ho-grid"
 }
