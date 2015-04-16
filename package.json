@@ -1,7 +1,7 @@
 {
   "name": "ho-grid",
-  "version": "1.1.0",
-  "description": "Modular grid system for flawless",
+  "version": "2.0.0",
+  "description": "Modular grid system for ho",
   "author": "Matt Styles",
   "main": "main.less",
   "license": "ISC",
